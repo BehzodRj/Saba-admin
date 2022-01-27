@@ -19,7 +19,7 @@
     margin: 0 20px; 
 }
 .auth__logo{
-    width: 50px;
+    width: 40px;
 }
 .logo {
     margin-right: 30px;
@@ -45,7 +45,7 @@
      display: flex;
      align-items: center;
      justify-content: center; 
-     margin-right: 10px;
+     margin-right: 10px; 
  }
  /* скрываем чекбокс */
 #menu__toggle {
@@ -56,12 +56,13 @@
     display: flex; 
     align-items: center;  
     position: fixed;  
-    width: 40px;
+    width: 30px;
     height: 35px;
     cursor: pointer;
     z-index: 3; 
     position: relative; 
     margin-right: 10px;
+    
 }
   /* добавляем "гамбургер" */
 .menu__btn > span,
@@ -75,11 +76,22 @@
 }
 .menu__btn > span::before {
     content: '';
-    top: -8px;
+    top: -8px; 
 }
 .menu__btn > span::after {
     content: '';
     top: 8px;
+}
+.arrow{
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    &:active{
+        transform: scale(.96);
+    }
 }
   /* контейнер меню */
 .menu__box {
@@ -120,20 +132,27 @@
 .menu__item:active {
    transform: scale(.7); 
 }
+#menu__toggles:checked ~ .menu__box   {
+    visibility: hidden;
+}
 #menu__toggle:checked ~ .menu__btn > span {
     transform: rotate(45deg); 
 }
 #menu__toggle:checked ~ .menu__btn > span::before {
     top: 0; 
-    transform: rotate(0);
+    transform: rotate(0); 
 }
 #menu__toggle:checked ~ .menu__btn > span::after {
     top: 0;
     transform: rotate(90deg); 
 } 
+ 
 #menu__toggle:checked ~ .menu__box {
     visibility: visible;
     left: 0;
+}   
+#menu__toggle:checked ~ .menu__btn { 
+   top: 5px;
 }   
  
 
