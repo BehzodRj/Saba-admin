@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trips-page.component.scss']
 })
 export class TripsPageComponent implements OnInit {
+  page: any
 
   constructor() { }
 

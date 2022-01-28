@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./brones-page.component.scss']
 })
 export class BronesPageComponent implements OnInit {
+  page: any
 
   constructor() { }
 
