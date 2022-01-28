@@ -1,1 +1,45 @@
-<p>cars-page works!</p>
+<app-header></app-header>
+<div class="container">
+  <div class="title_block">
+    <i class="fas fa-car"></i>
+    <h1>Автомобили</h1>
+  </div>
+
+  <div class="items_block">
+    <input type="search" placeholder="Поиск">
+    <div class="container__block">
+      <table class="resp-tab">
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Номер</th>
+            <th>Марка</th>
+            <th>Модель</th>
+            <th>Год.выпуска</th>
+            <th>Объем</th>
+            <th>Куз</th>
+            <th>Дата</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr [routerLink]="['/carsedit', 1]">
+            <td><span>Заголовок 1</span>Контент 1</td>
+            <td><span>Заголовок 2</span>Контент 1</td>
+            <td><span>Заголовок 3</span>Контент 1</td>
+            <td><span>Заголовок 4</span>Контент 1</td>
+            <td><span>Заголовок 4</span>Контент 1</td>
+            <td><span>Заголовок 4</span>Контент 1</td>
+            <td><span>Заголовок 4</span>Контент 1</td>
+            <td><span>Заголовок 4</span>Контент 1</td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div class="creat">
+        <pagination-controls previousLabel="Назад" nextLabel="Далее" (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+
+</div>

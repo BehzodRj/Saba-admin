@@ -6,7 +6,7 @@
   </div>
 
   <div class="items_block">
-    <input type="search" placeholder="Поиск">
+    <input type="search" placeholder="Поиск" [(ngModel)]="search">
     <div class="container__block">
       <table class="resp-tab">
         <thead>
@@ -23,17 +23,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><span>Заголовок 1</span>Контент 1</td>
-            <td><span>Заголовок 2</span>Контент 1</td>
-            <td><span>Заголовок 3</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
+          <tr *ngFor="let users of usersData[0] | filter: search | paginate: {itemsPerPage: 9, currentPage: page}; let idx = index" [routerLink]="['/usersedit', users.userID]">
+            <td><span>№</span>{{ idx + 1 }}</td>
+            <td><span>Ф.И.О</span>{{ users.firstName }} {{ users.lastName }}</td>
+            <td><span>Телефон</span>{{ users.phoneNumber }}</td>
+            <td><span>Дата Рождения</span>{{ users.birthDate | date: 'YYYY-MM-dd' }}</td>
+            <td><span>Адрес</span>{{ users.email }}</td>
+            <td><span>Роль</span>{{ users.carID == '' ? 'Пассажир' : 'Водитель' }}</td>
+            <td><span>Автомобиль</span>{{ users.carID  == '' ? 'Есть автомобил' : 'Нет автомобил'  }}</td>
+            <td><span>Дата добавления</span>{{ users.created | date: 'YYYY-MM-dd' }}</td>
           </tr>
-
         </tbody>
       </table>
       <div class="creat">

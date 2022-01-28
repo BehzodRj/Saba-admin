@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestsService } from '../all.service';
 
 @Component({
   selector: 'app-users-page',
@@ -7,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersPageComponent implements OnInit {
   page: any
+  search: any
+  usersData: any = []
 
-  constructor() { }
+  constructor(private request: RequestsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.request.getUsersRequests().subscribe(response => {
+      this.usersData = Object.values(response)
+    })
   }
 
 }

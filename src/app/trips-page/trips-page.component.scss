@@ -6,13 +6,12 @@
     .title_block {
         margin: 0 auto;
         display: flex;
-        align-items: center;
         border-bottom: 1px solid #DDDDDD;
         padding-bottom: 22px;
         width: 95%;
 
-        .fa-users {
-            font-size: 1.5rem;
+        .fa-suitcase {
+            font-size: 1.6rem;
         }
 
         h1 {
@@ -67,6 +66,17 @@
     border-collapse: collapse;
     width: 100%;
     max-width: 100%;
+
+    tr {
+        &:hover {
+            background-color: #60A3BC;
+            transition: .5s;
+        }
+
+        td {
+            cursor: pointer;
+        }
+    }
 }
 .resp-tab th, .resp-tab td {
     padding: 10px 20px;

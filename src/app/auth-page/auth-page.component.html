@@ -1,15 +1,15 @@
 <div class="auth__container">
-    <form action="" class="auth__block">
+    <form class="auth__block" action="" [formGroup]="authForm">
       <img src="./assets/img/logo.png" alt="" class="auth__logo">
 
       <div class="auth__form">
-        <input type="text" id="username" placeholder="ИМЯ ПОЛЬЗОВАТЕЛЯ">
+        <input type="text" placeholder="ИМЯ ПОЛЬЗОВАТЕЛЯ" formControlName="login">
       </div>
 
       <div class="auth__form auth__password">
-        <input type="password" id="password" placeholder="ПАРОЛЬ">
+        <input type="number" placeholder="ПАРОЛЬ" formControlName="password">
       </div>
 
-      <input type="submit" value="ВХОД" class="auth__button">
+      <button class="auth__button" [disabled]="authForm.invalid" (click)="logIn()">ВХОД</button>
     </form>
   </div>

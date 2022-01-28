@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container">
   <div class="title_block">
-    <i class="fas fa-users"></i>
+    <i class="fas fa-suitcase"></i>
     <h1>Поездки</h1>
   </div>
 
@@ -12,18 +12,18 @@
         <thead>
           <tr>
             <th>№</th>
-            <th>Ф.И.О</th>
-            <th>Телефон</th>
-            <th>Дата Рождения</th>
-            <th>Адрес</th>
-            <th>Роль</th>
-            <th>Автомобиль</th>
+            <th>Название</th>
+            <th>Водитель</th>
+            <th>Цена</th>
+            <th>Пассажиры</th>
+            <th>Дата</th>
             <th>Дата добавления</th>
+            <th>Статус</th>
 
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr [routerLink]="['/tripsedit', 1]">
             <td><span>Заголовок 1</span>Контент 1</td>
             <td><span>Заголовок 2</span>Контент 1</td>
             <td><span>Заголовок 3</span>Контент 1</td>

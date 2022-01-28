@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestsService } from '../all.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,9 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit() {}
 
 }

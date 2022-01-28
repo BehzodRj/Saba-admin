@@ -1,5 +1,5 @@
-.ng-invalid.ng-touched{
-    border-color: red;
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
   }
   .auth__container {
     height: 100vh;
@@ -26,11 +26,11 @@
     flex-direction: column;
   }
   .auth__form label {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin-bottom: 10px;
   }
   .auth__form input {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     padding: 15px;
     outline: none;
   }
@@ -39,7 +39,7 @@
     outline: none;
   }
   .auth__button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 15px;
     padding: 15px;
     width: 100%;
