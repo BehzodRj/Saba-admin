@@ -16,6 +16,8 @@ export class UsersPageComponent implements OnInit {
   ngOnInit() {
     this.request.getUsersRequests().subscribe(response => {
       this.usersData = Object.values(response)
+    }, error => {
+      alert(error.error)
     })
   }
 

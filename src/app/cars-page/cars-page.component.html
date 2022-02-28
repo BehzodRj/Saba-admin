@@ -6,7 +6,7 @@
   </div>
 
   <div class="items_block">
-    <input type="search" placeholder="Поиск">
+    <input type="search" placeholder="Поиск" [(ngModel)]="search">
     <div class="container__block">
       <table class="resp-tab">
         <thead>
@@ -23,15 +23,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr [routerLink]="['/carsedit', 1]">
-            <td><span>Заголовок 1</span>Контент 1</td>
-            <td><span>Заголовок 2</span>Контент 1</td>
-            <td><span>Заголовок 3</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
+          <tr *ngFor="let cars of carsData | filter: search | paginate: {itemsPerPage: 10, currentPage: page}; let idx = index" [routerLink]="['/carsedit', cars.carID]">
+            <td><span>№</span>{{ idx+1 }}</td>
+            <td><span>Номер</span>{{ cars.carNumber }}</td>
+            <td><span>Марка</span>{{ cars.markID }}</td>
+            <td><span>Модель</span>{{ cars.modelID }}</td>
+            <td><span>Год.выпуска</span>{{ cars.producedYear }}</td>
+            <td><span>Объем</span>{{ cars.capacity }}</td>
+            <td><span>Куз</span>{{ cars.carBody }}</td>
+            <td><span>Дата</span>{{ cars.created | date: 'YYYY-MM-d' }}</td>
           </tr>
 
         </tbody>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestsService } from '../all.service';
 
 @Component({
   selector: 'app-cars-page',
@@ -6,11 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cars-page.component.scss']
 })
 export class CarsPageComponent implements OnInit {
+  carsData: any = []
   page: any
+  search: any
 
-  constructor() { }
+  constructor(private request: RequestsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.request.getCarsRequests().subscribe( (response: any) => {
+      this.carsData = response.cars
+    }, error => {
+      alert(error.error)
+    })
   }
 
 }

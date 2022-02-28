@@ -6,7 +6,7 @@
   </div>
 
   <div class="items_block">
-    <input type="search" placeholder="Поиск">
+    <input type="search" placeholder="Поиск" [(ngModel)]="search">
     <div class="container__block">
       <table class="resp-tab">
         <thead>
@@ -23,17 +23,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr [routerLink]="['/tripsedit', 1]">
-            <td><span>Заголовок 1</span>Контент 1</td>
-            <td><span>Заголовок 2</span>Контент 1</td>
-            <td><span>Заголовок 3</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
+          <tr *ngFor="let trips of tripsData[0] | filter: search | paginate: {itemsPerPage: 10, currentPage: page}; let idx = index" [routerLink]="['/tripsedit', trips.orderID]">
+            <td><span>№</span>{{ idx + 1 }}</td>
+            <td><span>Название</span>{{ trips.orderName }}</td>
+            <td><span>Водитель</span>{{ trips.driverName }}</td>
+            <td><span>Цена</span>{{ trips.price }}</td>
+            <td><span>Пассажиры</span>{{ trips.passengers }}</td>
+            <td><span>Дата</span>{{ trips.time | date: 'YYYY-MM-dd' }}</td>
+            <td><span>Дата добавления</span>{{ trips.created | date: 'YYYY-MM-dd' }}</td>
+            <td><span>Статус</span>
+              <i class="fa fa-check-circle" [ngStyle]="{color: trips.active ? 'green' : 'red'}"></i>
+            </td>
           </tr>
-
         </tbody>
       </table>
       <div class="creat">

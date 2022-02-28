@@ -12,30 +12,30 @@
       <h1>Броны</h1>
     </div>
   
-    <form action="" class="form_block">
+    <form action="" class="form_block" [formGroup]="bronesEditForm">
       <div class="items_block">
         <div class="items">
           <h1>Тип</h1>
-          <input type="text" placeholder="Тип">
+          <input type="text" placeholder="Тип" readonly [placeholder]="broneEditData.dopInfo == '' ? 'Поездка' : 'Посылка'">
         </div>
       </div>
   
-      <textarea placeholder="Дополнительные поля"></textarea>
+      <textarea placeholder="Дополнительные поля" formControlName="dopInfo"></textarea>
     </form>
   
     <div class="about_block">
-      <img src="./assets/img/user.jpg" alt="">
+      <img src="http://api.saba.tj:9998/photo/user?q={{broneEditData.userPhoto}}" alt="">
       <div class="about_items">
-        <h1>Поездка: <span>1</span> </h1>
-        <h1>Автор: <span>Бурдж</span> </h1>
-        <h1>Статус: <input type="checkbox"> </h1>
+        <h1>Поездка: <span>{{ broneEditData.orderID }}</span> </h1>
+        <h1>Автор: <span>{{ broneEditData.userName }}</span> </h1>
+        <h1 style="display: flex;">Статус: <form style="margin-left: 5px;" action="" [formGroup]="bronesEditForm"><input type="checkbox" formControlName="status"></form></h1>
       </div>
     </div>
   
-    <div class="but_block">
-      <button class="save_but">Сохранить</button>
+    <!-- <div class="but_block">
+      <button class="save_but" (click)="saveBronesEdit()">Сохранить</button>
       <button class="delete_but">Удалить</button>
-    </div>
+    </div> -->
   
   </div>
   

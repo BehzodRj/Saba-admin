@@ -49,14 +49,14 @@
     <div class="about_items">
       <h1>Дата создания: <span>{{ usersEditData.created | date: 'YYYY-MM-dd' }}</span> </h1>
       <h1>Роль: <span>{{ usersEditData.carID == '' ? 'Пассажир' : 'Водитель' }}</span> </h1>
-      <h1>Автомобиль: <button>Смотреть</button> </h1>
+      <h1>Автомобиль: <button (click)="showCar(usersEditData.carID)" >Смотреть</button> </h1>
       <h1>Дата Рождения: <span>{{ usersEditData.birthDate | date: 'YYYY-MM-dd' }}</span> </h1>
     </div>
   </div>
 
   <div class="but_block">
     <button class="save_but" (click)="saveUserEdit()">Сохранить</button>
-    <button class="delete_but">Удалить</button>
+    <button class="delete_but" (click)="deleteUserEdit(usersEditData.userID)">Удалить</button>
   </div>
 
 </div>

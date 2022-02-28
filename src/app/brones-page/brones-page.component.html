@@ -2,11 +2,11 @@
 <div class="container">
   <div class="title_block">
     <i class="fas fa-book"></i>
-    <h1>Броны</h1>
+    <h1>Бронь</h1>
   </div>
 
   <div class="items_block">
-    <input type="search" placeholder="Поиск">
+    <input type="search" placeholder="Поиск" [(ngModel)]="search">
     <div class="container__block">
       <table class="resp-tab">
         <thead>
@@ -19,14 +19,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr [routerLink]="['/bronesedit', 1]">
-            <td><span>Заголовок 1</span>Контент 1</td>
-            <td><span>Заголовок 2</span>Контент 1</td>
-            <td><span>Заголовок 3</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
-            <td><span>Заголовок 4</span>Контент 1</td>
+          <tr *ngFor="let brones of bronesData[0] | filter: search | paginate: {itemsPerPage: 10, currentPage: page}; let idx = index" [routerLink]="['/bronesedit', brones.orderID]">
+            <td><span>№</span>{{ idx+1}}</td>
+            <td><span>Тип</span>{{ brones.dopInfo == "" ? "Поездка" : "Посылка" }}</td>
+            <td><span>Поездка</span>{{ brones.orderID }}</td>
+            <td><span>Автор</span>{{ brones.userName }}</td>
+            <td><span>Статус</span>
+              <i class="fa fa-check-circle" style="color: green" *ngIf="brones.status > 0"></i>
+              <i class="fa fa-check-circle" style="color: red" *ngIf="brones.status < 1"></i>
+            </td>
           </tr>
-
         </tbody>
       </table>
       <div class="creat">
